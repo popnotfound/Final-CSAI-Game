@@ -2,50 +2,34 @@
 
 import time
 
-print("Welcome to Escape from Tarkov Text Edition!")
-print(" ")
-print("Enter the word instructions to read them, but if you don't \nneed them enter the word no.")
+def help():
+  playerhelp = input("Enter 'help' for help, and enter 'start' to immediately start. ")
+  if playerhelp == "help":
+    print("Welcome to Escape from Tarkov Text Edition!")
+    print(" ")
+    print("You are a character trying to scavenge for materials, like \nguns, ammunition, and many more things to help you level up \nyour hideout, which is where you live and store all the things \nyou find. To find these types of items, type directions or try and look in things and eventually you will find the extract to exit back to your hideout. ")
+    print("You may also only use lowercase words and there are no spaces. All you have to do is 'y' for yes, and 'n' for no.")
+    print(" ")
+    print("I will give you 1:30 minutes to read the instructions. ")
+    time.sleep(90)
+    print(" ")
+    print("Okay. Lets's get into the game!")
+  elif playerhelp == "start":
+    start()
 
-print(" ")
-instructions = str(input(" "))
+def start():
+  print("You are in a map called Customs and are in the POI, Dorms. ")
+  print("")
+  print("You have a knife that can be used to kill any enemies around you. ")
+  print("")
+  print("You can go inside one huge dorm building or you can extract immediately with the knife and keep safe however the extract is guarded by Scavs, or also known as enemies. ")
+  print("")
+  enterdorms = input("Do you want to enter the huge dorms building? ")
 
-if instructions == "instructions":
-  print(" ")
-  print("You are a character trying to scavenge for materials, like \nguns, ammunition, and many more things to help you level up \nyour hideout, which is where you live and store all the things \nyou find. To find these types of items, type directions or try and look in things and eventually you will find the extract to exit back to your hideout. ")
-  print(" ")
-  print("I will give you 1 minute to read the instructions. ")
-  time.sleep(60)
-  print(" ")
-  print("Okay. Lets's get into the game!")
-elif instructions == "no":
-  print("Let's get into the game!")
+  if enterdorms == "y":
+    print("You enter the dorms building and there are many different rooms. It is a one story building with 4 different rooms labeled Dorm 001, Dorm 002, Dorm 003, and Dorm 004. There are also random pieces of furniture you can look through to find keys to open these different dorm rooms. ")
+  elif enterdorms == "n":
+    print("You go towards the extract/exit and there are two enemies guarding it. You want to sneak around trees, kill one, and leave or risk trying to kill both of them.")
+    print("")
+    extracting = input("Do you want to 'sneak and kill one' or 'kill both'?")
 
-print('\n'*25)
-while True: 
-  playerhealth = 100
-  playerstamina = 100
-  
-  print("You are in the map, Customs, and you spawn at dorms. Type \nanything to move towards completing the game.")
-  print(" ")
-  firstplayeraction = input()
-  inventory = ['knife']
-  outwhileloop = False
-
-
-  while outwhileloop == False:
-    if firstplayeraction.lower() == "north":
-      print("You have moved towards some factory shacks and a bus. Since you ran to this direction, you lost 5 stamina")
-      playerstamina = playerstamina - 5
-      outwhileloop = True
-    elif firstplayeraction.lower() == "east":
-      print("You are moving through the forest and come to a dead end. Since you ran to this direction, you lost 5 stamina ")
-      print(" ")
-    elif firstplayeraction.lower() == "south":
-      print("You go south and come across a dead end. There is nothing here. Since you ran to this direction, you lost 5 stamina ")
-      print(" ")
-    elif firstplayeraction.lower() == "west":
-      print("You come across a dead end. Except you find a campfire. Since you ran to this direction, you lost 5 stamina")
-      print(" ")
-      outwhileloop = True
-    elif firstplayeraction.lower() == "show inventory":
-      print(inventory)
